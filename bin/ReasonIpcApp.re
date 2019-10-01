@@ -1,3 +1,6 @@
+// https://ocaml.github.io/ocamlunix/pipes.html
+// https://caml.inria.fr/pub/docs/oreilly-book/html/book-ora168.html
+
 let (fd_in, fd_out) = Unix.pipe();
 
 switch (Unix.fork()) {
