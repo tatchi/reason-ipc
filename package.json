@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "@opam/dune": "*",
+    "@opam/reason": "*",
     "@reason-native/console": "*",
     "@reason-native/pastel": "*",
     "@reason-native/rely": "*",
@@ -67,6 +68,7 @@
   },
   "devDependencies": {
     "@opam/merlin": "*",
+    "@opam/reason": "let-def/reason:reason.opam#bd07255b6674c3dfae8edb037b6865f8490abaff",
     "ocaml": "~4.7.0",
     "@opam/odoc": "*",
     "@pesy/esy-pesy": "0.1.0-alpha.2"
