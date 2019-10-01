@@ -1,0 +1,11 @@
+(library (name ReasonIpcLibrary) (public_name reason-ipc.library)
+    (modules (:standard \ ReasonIpcLibraryPesyModules))
+    (libraries reason-ipc.library.pesy-modules)
+    (flags -open ReasonIpcLibraryPesyModules))
+(library (public_name reason-ipc.library.pesy-modules)
+    (name ReasonIpcLibraryPesyModules) (modules ReasonIpcLibraryPesyModules)
+    (libraries console.lib pastel.lib))
+(rule
+    (with-stdout-to ReasonIpcLibraryPesyModules.re
+        (run echo  "module Console = Console;\
+                  \nmodule Pastel = Pastel;")))

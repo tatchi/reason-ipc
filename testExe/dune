@@ -1,0 +1,11 @@
+(executable (name RunReasonIpcTests)
+    (modules (:standard \ ReasonIpcTestExePesyModules))
+    (public_name RunReasonIpcTests.exe)
+    (libraries reason-ipc.testExe.pesy-modules)
+    (flags -open ReasonIpcTestExePesyModules))
+(library (public_name reason-ipc.testExe.pesy-modules)
+    (name ReasonIpcTestExePesyModules) (modules ReasonIpcTestExePesyModules)
+    (libraries reason-ipc.test))
+(rule
+    (with-stdout-to ReasonIpcTestExePesyModules.re
+        (run echo "module Test = ReasonIpcTest;")))

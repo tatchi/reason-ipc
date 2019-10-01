@@ -1,0 +1,10 @@
+(executable (name ReasonIpcApp)
+    (modules (:standard \ ReasonIpcBinPesyModules))
+    (public_name ReasonIpcApp.exe) (libraries reason-ipc.bin.pesy-modules)
+    (flags -open ReasonIpcBinPesyModules))
+(library (public_name reason-ipc.bin.pesy-modules)
+    (name ReasonIpcBinPesyModules) (modules ReasonIpcBinPesyModules)
+    (libraries reason-ipc.library))
+(rule
+    (with-stdout-to ReasonIpcBinPesyModules.re
+        (run echo "module Library = ReasonIpcLibrary;")))

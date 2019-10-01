@@ -1,0 +1,12 @@
+(library (name ReasonIpcTest) (public_name reason-ipc.test)
+    (modules (:standard \ ReasonIpcTestPesyModules))
+    (libraries reason-ipc.test.pesy-modules)
+    (flags -linkall -g -w -9 -open ReasonIpcTestPesyModules))
+(library (public_name reason-ipc.test.pesy-modules)
+    (name ReasonIpcTestPesyModules) (modules ReasonIpcTestPesyModules)
+    (libraries reason-ipc.library rely.lib))
+(rule
+    (with-stdout-to ReasonIpcTestPesyModules.re
+        (run echo
+             "module Library = ReasonIpcLibrary;\
+            \nmodule Rely = Rely;")))
