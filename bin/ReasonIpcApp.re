@@ -12,6 +12,7 @@ let inChannel = Unix.open_process_in("ls");
 
 let res = ref("");
 
+
 try(
   while (true) {
     res := res^ ++ "\n" ++ input_line(inChannel);

@@ -38,7 +38,9 @@
     "library": {
       "imports": [
         "Console = require('console/lib')",
-        "Pastel = require('pastel/lib')"
+        "Pastel = require('pastel/lib')",
+        "Lwt = require('lwt')",
+        "Lwt_unix = require('lwt/unix')"
       ]
     },
     "bin": {
@@ -59,6 +61,7 @@
   "dependencies": {
     "@opam/dune": "*",
     "@opam/reason": "*",
+    "@opam/lwt": "*",
     "@reason-native/console": "*",
     "@reason-native/pastel": "*",
     "@reason-native/rely": "*",

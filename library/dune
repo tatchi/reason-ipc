@@ -4,8 +4,11 @@
     (flags -open ReasonIpcLibraryPesyModules))
 (library (public_name reason-ipc.library.pesy-modules)
     (name ReasonIpcLibraryPesyModules) (modules ReasonIpcLibraryPesyModules)
-    (libraries console.lib pastel.lib))
+    (libraries console.lib lwt lwt.unix pastel.lib))
 (rule
     (with-stdout-to ReasonIpcLibraryPesyModules.re
-        (run echo  "module Console = Console;\
-                  \nmodule Pastel = Pastel;")))
+        (run echo
+             "module Console = Console;\
+            \nmodule Pastel = Pastel;\
+            \nmodule Lwt = Lwt;\
+            \nmodule Lwt_unix = Lwt_unix;")))
