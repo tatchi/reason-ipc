@@ -10,17 +10,13 @@ let main = () => {
   //     ("", [|"ls", "-l"|]),
   //   );
 
+  Lwt_io.write_line(Lwt_io.of_fd(Output, fd_out), "hello") |> ignore;
+
   Lwt.bind(
-    Lwt_io.write_line(Lwt_io.of_fd(Output, fd_out), "hello"),
-    () => {
-      Console.log("should have written");
-      Lwt.bind(
-        Lwt_io.read_line(Lwt_io.of_fd(Input, fd_in)),
-        res => {
-          Console.log(res);
-          Lwt.return();
-        },
-      );
+    Lwt_io.read_line(Lwt_io.of_fd(Input, fd_in)),
+    res => {
+      Console.log(res);
+      Lwt.return();
     },
   );
 };
