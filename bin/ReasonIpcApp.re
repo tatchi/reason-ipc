@@ -8,7 +8,7 @@ let main = () => {
     Lwt_process.open_process_out(
       // ~stdin=`FD_move(Lwt_unix.unix_file_descr(fd_in)),
       ~stdout=`FD_move(Lwt_unix.unix_file_descr(fd_out)),
-      ("", [|"ping", "google.com"|]),
+      ("", [|"fswatch", " -e '.*/\..*'", "."|]),
     );
 
   let rec read = () =>
