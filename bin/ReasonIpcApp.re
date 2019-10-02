@@ -11,22 +11,9 @@ let main = () => {
       ("", [|"fswatch", " -e '.*/\..*'", "."|]),
     );
 
-  let rec read = () =>
-    Lwt_io.read_line_opt(Lwt_io.of_fd(Input, fd_in))
-    >>= (
-      res => {
-        switch (res) {
-        | None =>
-          Lwt.return();
-        | Some(d) =>
-          Console.log(d);
-          Lwt.return();
-        };
-      }
-    )
-    >>= read;
+  let stream = Lwt_io.read_lines(Lwt_io.of_fd(Input, fd_in));
 
-  read();
+  Lwt_stream.iter(res => {Console.log(res)}, stream);
 };
 
 Lwt_main.run(main());
